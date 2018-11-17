@@ -11,7 +11,7 @@ def not_found(error):
 
 @app.route('/', methods = ['GET'])
 def index():
-    return "Hola gente de aca mundo"
+    return "Hola gente de aca mundo0"
 
 if __name__ == '__main__':
     app.run(port = PORT, debug = DEBUG)
