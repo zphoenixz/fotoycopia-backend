@@ -4,7 +4,7 @@ import driveApiABM
 
 app = Flask(__name__)
 PORT = 5000 #8000
-DEBUG = False #True
+DEBUG = True #True
 
 @app.errorhandler(404)
 def not_found(error):
@@ -16,10 +16,8 @@ def index():
 
 @app.route('/get_all_not_trashed', methods = ['GET'])
 def getAllData():
-    print("entre 0")
     ManageABM = driveApiABM.ABM()
     allNotTrasedDocs = ManageABM.getAllNotTrashedDocs()
-    print("entre 4")
     return allNotTrasedDocs
 
 
