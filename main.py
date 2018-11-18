@@ -4,7 +4,7 @@ import driveApiABM
 
 app = Flask(__name__)
 PORT = 5000 #8000
-DEBUG = True #True
+DEBUG = False #True
 
 @app.errorhandler(404)
 def not_found(error):

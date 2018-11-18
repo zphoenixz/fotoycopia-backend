@@ -102,15 +102,17 @@ class ABM:
     # file_id = '1JWWfcomvtmhL1q7VfsgNGDwEGDh0LCet'#.doc file
 
 
-    def callback(request_id, response, exception):
-        if exception:
-            # Handle error
-            print(exception)
-        else:
-            print("Permission Id: %s" % response.get('id'))
+ 
 
 
     def makeLinkPublic(self, file_id):
+        def callback(request_id, response, exception):
+            if exception:
+                # Handle error
+                print(exception)
+            else:
+                print("Permission Id: %s" % response.get('id'))
+                
         batch = self.drive_service.new_batch_http_request(callback=callback)
         user_permission = {
             'type': 'anyone',
