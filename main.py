@@ -20,6 +20,17 @@ def getAllData():
     allNotTrasedDocs = ManageABM.getAllNotTrashedDocs()
     return allNotTrasedDocs
 
+@app.route('/load_file', methods = ['GET'])
+def uploadFile():
+    ManageABM = driveApiABM.ABM()
+    allNotTrasedDocs = ManageABM.uploadFile('redes.pdf','https://firebasestorage.googleapis.com/v0/b/booking-d6940.appspot.com/o/Archivos%2F9i2712eflcasmolcb579anraae?alt=media&token=1e0aa3dc-d5e4-41d9-b737-01f4dabbee8a','application/vnd.google-apps.document')
+    return allNotTrasedDocs
+
+@app.route('/download_file', methods = ['GET'])
+def downloadFile():
+    ManageABM = driveApiABM.ABM()
+    ManageABM.downloadFile('1VN4uxGmvwduIt0P6WzfvqEpAmsAogpMt','descargada.jpg')#application/msword
+    return "Descargado"
 
 if __name__ == '__main__':
     app.run(port = PORT, debug = DEBUG)
