@@ -30,6 +30,7 @@ def uploadFile():
 def downloadFile():
     ManageABM = driveApiABM.ABM()
     ManageABM.downloadFile('1VN4uxGmvwduIt0P6WzfvqEpAmsAogpMt','descargada.jpg')#application/msword
+    ManageABM.uploadFile('descargada.jpg','descargada.jpg','image/jpeg')
     return "Descargado"
 
 if __name__ == '__main__':
