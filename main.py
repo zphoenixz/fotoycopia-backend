@@ -42,18 +42,21 @@ def tryFile():
     # # url = urllib.parse.quote_plus(url)
     # print(url)
     fileAux = fileHelpers.fileHelpers(url)
-    print("Is downloable? -> ", fileAux.wichDocumentTypeIs())
-    print("Size of the file is -> ", fileAux.sizeOfTheFile())
-    print("FileName is suposed to be -> ", fileAux.get_filename_from_cd())
+    documentType = fileAux.wichDocumentTypeIs()
+    fileSize = fileAux.sizeOfTheFile()
+    fileName = fileAux.get_filename_from_cd()
     print("Downloading! ")
     fileAux.downloadUrl("descargue.pdf")
+
+    ManageABM = driveApiABM.ABM()
+    ManageABM.uploadFile('descargue.pdf','descargue.pdf', documentType)
 
     # r = requests.get(url, allow_redirects=True)  # to get content after redirection
     # pdf_url = r.url # 'https://media.readthedocs.org/pdf/django/latest/django.pdf'
     # with open('file_name.pdf', 'wb') as f:
     #     f.write(r.content)
 
-    return "Is downloable? -> ", fileAux.wichDocumentTypeIs(), " - Size of the file is -> ", fileAux.sizeOfTheFile(), " - FileName is suposed to be -> ", fileAux.get_filename_from_cd()
+    return "Is downloable? -> ", documentType, " - Size of the file is -> ", fileSize, " - FileName is suposed to be -> ", fileName
 
 if __name__ == '__main__':
     app.run(port = PORT, debug = DEBUG)
