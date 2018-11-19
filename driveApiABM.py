@@ -59,7 +59,7 @@ class ABM:
 
     def downloadFile(self, file_id, filepath):
         request = self.drive_service.files().get_media(fileId=file_id)
-        # print("requested files is : ",drive_service.drive_service.files().)
+        print("requested files is : ", request)
         fh = io.BytesIO()
         downloader = MediaIoBaseDownload(fh, request)
         done = False
