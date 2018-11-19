@@ -56,7 +56,7 @@ def tryFile():
     # with open('file_name.pdf', 'wb') as f:
     #     f.write(r.content)
 
-    return "Is downloable? -> ", documentType, " - Size of the file is -> ", fileSize, " - FileName is suposed to be -> ", fileName
+    return "Is downloable? -> " + str(documentType) + " - Size of the file is -> " + str(fileSize) + " - FileName is suposed to be -> " + str(fileName)
 
 if __name__ == '__main__':
     app.run(port = PORT, debug = DEBUG)
