@@ -45,12 +45,12 @@ def tryFile():
     documentType = fileAux.wichDocumentTypeIs()
     fileSize = fileAux.sizeOfTheFile()
     fileName = fileAux.get_filename_from_cd()
-    print("Downloading! ")
+    # print("Downloading! ")
     fileAux.downloadUrl("descargue.pdf")
 
     ManageABM = driveApiABM.ABM()
-    ManageABM.uploadFile('descargue.pdf','descargue.pdf', documentType)
-
+    fileId = ManageABM.uploadFile('descargue.pdf','descargue.pdf', documentType)
+    ManageABM.makeLinkPublic(fileId)
     # r = requests.get(url, allow_redirects=True)  # to get content after redirection
     # pdf_url = r.url # 'https://media.readthedocs.org/pdf/django/latest/django.pdf'
     # with open('file_name.pdf', 'wb') as f:

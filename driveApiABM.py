@@ -54,7 +54,10 @@ class ABM:
         media = MediaFileUpload(filepath)
         file = self.drive_service.files().create(
             body=file_metadata, media_body=media, fields='id').execute()
-        print('File ID: %s' % file.get('id'))
+        fileIdCreated = file.get('id')
+        print('File ID: %s' % fileIdCreated)
+
+        return fileIdCreated
 
 
     def downloadFile(self, file_id, filepath):
