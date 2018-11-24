@@ -129,13 +129,13 @@ class ABM:
     # "name contains 'Getting'"
     def getAllNotTrashedDocs(self):
         results = self.drive_service.files().list(pageSize=10,
-                                        fields="nextPageToken, files(id, name, webViewLink, mimeType)",
+                                        fields="nextPageToken, files(id, name, webViewLink, mimeType, createdTime)",
                                         q="trashed=False and mimeType != 'application/vnd.google-apps.folder'",).execute()
         print(results)
         # items = json.dumps(results['files'][1])
         print(results['files'])
 
         for item in results['files']:
-            print(item['id'], item['name'], item['webViewLink'], item['mimeType'])
+            print(item['id'], item['name'], item['webViewLink'], item['mimeType'], item['createdTime'])
         return  json.dumps(results['files'])
 
